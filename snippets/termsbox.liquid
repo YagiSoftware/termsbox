@@ -1,0 +1,35 @@
+<p class="cart-attribute__field">
+  <input type="hidden" name="attributes[Customer agreed to terms]" value="No" form="cart">
+  <input required id="termsbox_id" class="required" type="checkbox" name="attributes[Customer agreed to terms]" value="Yes"{% if cart.attributes["Customer agreed to terms"] == "Yes" %} checked{% endif %} form="cart">
+  <label for="termsbox_id" style="cursor: pointer;">{{ block.settings.checkbox_text}} <a href="https://yagisoftware.com">Yagi</a></label>
+</p>
+
+<style>
+	#dynamic-checkout-cart, [name="checkout"][type="submit"] {
+		{% if cart.attributes["Customer agreed to terms"] == "Yes" %}
+		pointer-events: auto;
+		opacity: 1.0;
+		{% else %}
+		pointer-events: none;
+		opacity: 0.5;
+		{% endif %}
+	}
+</style>
+
+<script>
+document.getElementById('termsbox_id').addEventListener('change', (event) => {
+  if (event.currentTarget.checked) {
+  	document.querySelector('[name="checkout"][type="submit"]').style.pointerEvents = 'auto';
+    document.querySelector('[name="checkout"][type="submit"]').style.opacity = 1.0;
+
+  	document.getElementById('dynamic-checkout-cart').style.pointerEvents = 'auto';
+    document.getElementById('dynamic-checkout-cart').style.opacity = 1.0;
+  } else {
+  	document.querySelector('[name="checkout"][type="submit"]').style.pointerEvents = 'none';
+    document.querySelector('[name="checkout"][type="submit"]').style.opacity = 0.5;
+
+  	document.getElementById('dynamic-checkout-cart').style.pointerEvents = 'none';
+    document.getElementById('dynamic-checkout-cart').style.opacity = 0.5;
+  }
+})
+</script>

@@ -1,0 +1,22 @@
+<!-- paste this section right below "case block.type" line -->
+{%- when 'termsbox' %}
+  <div {{ block.shopify_attributes }}>
+    {% render 'termsbox' , block: block %}
+  </div>
+
+
+<!-- paste this section in the {% schema %} blocks part -->
+
+{
+  "type": "termsbox",
+  "name": "Termsbox",
+  "limit": 1,
+  "settings": [
+    {
+      "id": "checkbox_text",
+      "type": "text",
+      "label": "Text",
+      "default": "I agree to terms and conditions"
+    }
+  ]
+},
