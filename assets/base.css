@@ -1,0 +1,3 @@
+.cart-notification__links button[name="checkout"] {
+  display: none !important;
+}

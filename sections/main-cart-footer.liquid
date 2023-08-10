@@ -6,17 +6,33 @@
 
 
 <!-- paste this section in the {% schema %} blocks part -->
-
 {
   "type": "termsbox",
   "name": "Termsbox",
   "limit": 1,
   "settings": [
     {
-      "id": "checkbox_text",
+      "id": "prelink_text",
       "type": "text",
-      "label": "Text",
-      "default": "I agree to terms and conditions"
+      "label": "Text before the link to the terms",
+      "default": "I have read"
+    },
+    {
+      "id": "link_text",
+      "type": "text",
+      "label": "The link text of the terms",
+      "default": "Terms and Conditions"
+    },
+    {
+      "id": "postlink_text",
+      "type": "text",
+      "label": "Text after the link to the terms",
+      "default": " and agree"
+    },
+    {
+      "id": "terms_page",
+      "type": "page",
+      "label": "Terms and Conditions page"
     }
   ]
 },

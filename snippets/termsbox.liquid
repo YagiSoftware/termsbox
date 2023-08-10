@@ -1,7 +1,11 @@
 <p class="cart-attribute__field">
   <input type="hidden" name="attributes[Customer agreed to terms]" value="No" form="cart">
   <input required id="termsbox_id" class="required" type="checkbox" name="attributes[Customer agreed to terms]" value="Yes"{% if cart.attributes["Customer agreed to terms"] == "Yes" %} checked{% endif %} form="cart">
-  <label for="termsbox_id" style="cursor: pointer;">{{ block.settings.checkbox_text}} <a href="https://yagisoftware.com">Yagi</a></label>
+  <label for="termsbox_id" style="cursor: pointer;">
+  	{{ block.settings.prelink_text }}
+  	<a href="{{ block.settings.terms_page.url }}" target="_blank">{{ block.settings.link_text }}</a>
+  	{{ block.settings.postlink_text }}
+  </label>
 </p>
 
 <style>
