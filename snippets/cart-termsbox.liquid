@@ -1,6 +1,6 @@
 <p class="cart-attribute__field">
-  <input type="hidden" name="attributes[Customer agreed to terms]" value="No" form="cart">
-  <input id="termsbox_id" {% if block.settings.mandatory %}class="required" required {% endif %} type="checkbox" name="attributes[Customer agreed to terms]" value="Yes"{% if cart.attributes["Customer agreed to terms"] == "Yes" %} checked{% endif %} form="cart">
+  <input type="hidden" name="attributes[{{ block.settings.internal_label }}]" value="No" form="cart">
+  <input id="termsbox_id" {% if block.settings.mandatory %}class="required" required {% endif %} type="checkbox" name="attributes[{{ block.settings.internal_label }}]" value="Yes" {% if cart.attributes[block.settings.internal_label] != "No" %} checked{% endif %} form="cart">
   <label for="termsbox_id" style="cursor: pointer;">
   	{{ block.settings.prelink_text }}
   	<a href="{{ block.settings.terms_page.url }}" target="_blank">{{ block.settings.link_text }}</a>
@@ -15,7 +15,7 @@
 
 	{% if block.settings.mandatory %}
 	#dynamic-checkout-cart, [name="checkout"][type="submit"] {
-		{% if cart.attributes["Customer agreed to terms"] == "Yes" %}
+		{% if cart.attributes[block.settings.internal_label] != "No" %}
 		pointer-events: auto;
 		opacity: 1.0;
 		{% else %}
