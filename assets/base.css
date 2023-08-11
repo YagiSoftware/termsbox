@@ -1,3 +1,4 @@
+/* hide the checkout button from cart drawer */
 .cart-notification__links button[name="checkout"] {
   display: none !important;
 }

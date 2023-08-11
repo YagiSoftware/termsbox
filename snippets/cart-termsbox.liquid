@@ -9,6 +9,9 @@
 </p>
 
 <style>
+	#termsbox_id {
+		transform: scale({{ block.settings.checkbox_scale }});
+	}
 	#dynamic-checkout-cart, [name="checkout"][type="submit"] {
 		{% if cart.attributes["Customer agreed to terms"] == "Yes" %}
 		pointer-events: auto;
